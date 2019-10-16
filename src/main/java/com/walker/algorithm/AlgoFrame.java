@@ -20,13 +20,12 @@ public class AlgoFrame extends JFrame {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
 
-        // setSize(canvasWidth, canvasHeight);
         AlgoCanvas canvas = new AlgoCanvas();
         setContentPane(canvas);
         pack();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        // setResizable(false);
         setVisible(true);
     }
 
@@ -58,14 +57,6 @@ public class AlgoFrame extends JFrame {
             g2d.addRenderingHints(hints);
 
             // 具体绘制
-            // AlgoVisHelper.setStrokeWidth(g2d, 5);
-
-            // AlgoVisHelper.setColor(g2d, Color.RED);
-            // AlgoVisHelper.strokeCircle(g2d, canvasWidth / 2, canvasHeight / 2, 200);
-            //
-            // AlgoVisHelper.setColor(g2d, Color.BLUE);
-            // AlgoVisHelper.fillCircle(g2d, canvasWidth / 2, canvasHeight / 2, 200);
-
             AlgoVisHelper.setStrokeWidth(g2d, 1);
             AlgoVisHelper.setColor(g2d, Color.RED);
             for (Circle circle : circles) {
