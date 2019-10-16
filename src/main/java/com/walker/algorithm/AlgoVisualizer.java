@@ -1,6 +1,8 @@
 package com.walker.algorithm;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * @author walker
@@ -16,6 +18,7 @@ public class AlgoVisualizer {
      * 视图
      */
     private AlgoFrame frame;
+    private boolean isAnimated = true;
 
     public AlgoVisualizer(int sceneWidth, int sceneHeight, int n) {
         // 初始化数据
@@ -32,6 +35,7 @@ public class AlgoVisualizer {
         // 初始化视图
         EventQueue.invokeLater(() -> {
             frame = new AlgoFrame("Welcome", sceneWidth, sceneHeight);
+            frame.addKeyListener(new AlgoKeyListener());
 
             new Thread(this::run).start();
         });
@@ -44,12 +48,23 @@ public class AlgoVisualizer {
         while (true) {
             // 绘制数据
             frame.render(circles);
-            // AlgoVisHelper.pause(20);
+            AlgoVisHelper.pause(20);
 
             // 更新数据
-            // for (Circle circle : circles) {
-            //     circle.move(0, 0, frame.getCanvasWidth(), frame.getCanvasHeight());
-            // }
+            if (isAnimated) {
+                for (Circle circle : circles) {
+                    circle.move(0, 0, frame.getCanvasWidth(), frame.getCanvasHeight());
+                }
+            }
+        }
+    }
+
+    private class AlgoKeyListener extends KeyAdapter {
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if (e.getKeyChar() == ' ') {
+                isAnimated = !isAnimated;
+            }
         }
     }
 }

@@ -62,7 +62,6 @@ public class AlgoFrame extends JFrame {
             for (Circle circle : circles) {
                 AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
             }
-
         }
 
         @Override
