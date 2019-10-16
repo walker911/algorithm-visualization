@@ -3,6 +3,8 @@ package com.walker.algorithm;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @author walker
@@ -36,6 +38,7 @@ public class AlgoVisualizer {
         EventQueue.invokeLater(() -> {
             frame = new AlgoFrame("Welcome", sceneWidth, sceneHeight);
             frame.addKeyListener(new AlgoKeyListener());
+            frame.addMouseListener(new AlgoMouseListener());
 
             new Thread(this::run).start();
         });
@@ -64,6 +67,19 @@ public class AlgoVisualizer {
         public void keyReleased(KeyEvent e) {
             if (e.getKeyChar() == ' ') {
                 isAnimated = !isAnimated;
+            }
+        }
+    }
+
+    private class AlgoMouseListener extends MouseAdapter {
+        @Override
+        public void mousePressed(MouseEvent event) {
+            event.translatePoint(0, -(frame.getBounds().height - frame.getCanvasHeight()));
+
+            for (Circle circle : circles) {
+                if (circle.contain(event.getPoint())) {
+                    circle.isFilled = !circle.isFilled;
+                }
             }
         }
     }

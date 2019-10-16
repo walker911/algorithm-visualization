@@ -1,5 +1,7 @@
 package com.walker.algorithm;
 
+import java.awt.*;
+
 /**
  * @author walker
  * @date 2019/10/14
@@ -9,6 +11,7 @@ public class Circle {
     public int x, y;
     private int r;
     public int vx, vy;
+    public boolean isFilled = false;
 
     public Circle(int x, int y, int r, int vx, int vy) {
         this.x = x;
@@ -49,5 +52,9 @@ public class Circle {
             y = maxy - r;
             vy = -vy;
         }
+    }
+
+    public boolean contain(Point point) {
+        return (x - point.x) * (x - point.x) + (y - point.y) * (y - point.y) <= r * r;
     }
 }
