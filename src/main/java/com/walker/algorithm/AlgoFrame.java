@@ -25,7 +25,6 @@ public class AlgoFrame extends JFrame {
         pack();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // setResizable(false);
         setVisible(true);
     }
 
@@ -59,11 +58,13 @@ public class AlgoFrame extends JFrame {
             // 具体绘制
             AlgoVisHelper.setStrokeWidth(g2d, 1);
             AlgoVisHelper.setColor(g2d, Color.RED);
-            for (Circle circle : circles) {
-                if (circle.isFilled) {
-                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
-                } else {
-                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+            if (circles != null) {
+                for (Circle circle : circles) {
+                    if (circle.isFilled) {
+                        AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
+                    } else {
+                        AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                    }
                 }
             }
         }

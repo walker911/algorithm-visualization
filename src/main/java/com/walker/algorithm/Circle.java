@@ -48,7 +48,7 @@ public class Circle {
             vy = -vy;
         }
 
-        if (y + r <= maxy) {
+        if (y + r >= maxy) {
             y = maxy - r;
             vy = -vy;
         }

@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         int sceneWidth = 800;
-        int sceneHeight = 700;
+        int sceneHeight = 600;
         int n = 10;
 
         AlgoVisualizer vis = new AlgoVisualizer(sceneWidth, sceneHeight, n);
