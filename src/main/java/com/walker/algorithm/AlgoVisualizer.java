@@ -83,4 +83,13 @@ public class AlgoVisualizer {
             }
         }
     }
+
+    public static void main(String[] args) {
+
+        int sceneWidth = 800;
+        int sceneHeight = 600;
+        int n = 10;
+
+        AlgoVisualizer vis = new AlgoVisualizer(sceneWidth, sceneHeight, n);
+    }
 }
