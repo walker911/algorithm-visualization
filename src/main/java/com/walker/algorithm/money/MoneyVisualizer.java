@@ -4,6 +4,7 @@ import com.walker.algorithm.AlgoVisHelper;
 import com.walker.algorithm.Circle;
 
 import javax.swing.*;
+import java.util.Arrays;
 
 /**
  * @author walker
@@ -16,9 +17,7 @@ public class MoneyVisualizer {
 
     public MoneyVisualizer(int sceneWidth, int sceneHeight) {
         money = new int[100];
-        for (int i = 0; i < money.length; i++) {
-            money[i] = 100;
-        }
+        Arrays.fill(money, 100);
 
         SwingUtilities.invokeLater(() -> {
             frame = new MoneyFrame("Money Problem", sceneWidth, sceneHeight);
